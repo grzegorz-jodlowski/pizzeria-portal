@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const MainLayout = ({ children }) => {
+const MainLayout = props => {
   return (
-    <div>{children}</div>
+    <div>{props.children}</div>
   );
 };
 
