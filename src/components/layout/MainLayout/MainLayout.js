@@ -13,6 +13,7 @@ const MainLayout = ({ children }) => {
           <PageNav />
         </Toolbar>
       </AppBar>
+      <Toolbar />
       <div>{children}</div>
     </div>
   );

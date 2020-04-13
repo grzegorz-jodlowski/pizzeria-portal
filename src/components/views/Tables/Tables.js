@@ -10,16 +10,16 @@ const Tables = () => {
   return (
     <div className={styles.component}>
       <h2>Tables view</h2>
-      <Link to={`/tables/booking/new`} className={styles.link}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} className={styles.link}>
         New booking
       </Link>
-      <Link to={`/tables/booking/${state.id}`} className={styles.link}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/booking/${state.id}`} className={styles.link}>
         Edit booking
       </Link>
-      <Link to={`/tables/events/new`} className={styles.link}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/events/new`} className={styles.link}>
         New event
       </Link>
-      <Link to={`/tables/events/${state.id}`} className={styles.link}>
+      <Link to={`${process.env.PUBLIC_URL}/tables/events/${state.id}`} className={styles.link}>
         Edit event
       </Link>
     </div>

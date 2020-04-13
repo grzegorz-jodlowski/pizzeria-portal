@@ -11,10 +11,10 @@ const Ordering = () => {
   return (
     <div className={styles.component}>
       <h2>Ordering view</h2>
-      <Link to={`/ordering/new`} className={styles.link}>
+      <Link to={`${process.env.PUBLIC_URL}/ordering/new`} className={styles.link}>
         New
       </Link>
-      <Link to={`/ordering/order/${state.id}`} className={styles.link}>
+      <Link to={`${process.env.PUBLIC_URL}/ordering/order/${state.id}`} className={styles.link}>
         Edit order
       </Link>
     </div>
