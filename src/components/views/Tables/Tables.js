@@ -11,10 +11,16 @@ const Tables = () => {
     <div className={styles.component}>
       <h2>Tables view</h2>
       <Link to={`/tables/booking/new`} className={styles.link}>
-        New
+        New booking
       </Link>
       <Link to={`/tables/booking/${state.id}`} className={styles.link}>
         Edit booking
+      </Link>
+      <Link to={`/tables/events/new`} className={styles.link}>
+        New event
+      </Link>
+      <Link to={`/tables/events/${state.id}`} className={styles.link}>
+        Edit event
       </Link>
     </div>
   );
