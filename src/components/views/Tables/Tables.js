@@ -1,9 +1,9 @@
 import React from 'react';
-import Styles from './Tables.module.scss';
+import styles from './Tables.module.scss';
 
 const Tables = () => {
   return (
-    <div className={Styles.component}>
+    <div className={styles.component}>
       <h2>Tables view</h2>
     </div>
   );

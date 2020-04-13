@@ -1,9 +1,9 @@
 import React from 'react';
-import Styles from './NewBooking.module.scss';
+import styles from './NewBooking.module.scss';
 
 const NewBooking = () => {
   return (
-    <div className={Styles.component}>
+    <div className={styles.component}>
       <h2>NewBooking view</h2>
     </div>
   );

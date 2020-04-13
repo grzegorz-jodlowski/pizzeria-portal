@@ -1,9 +1,9 @@
 import React from 'react';
-import Styles from './Homepage.module.scss';
+import styles from './Homepage.module.scss';
 
 const Homepage = () => {
   return (
-    <div className={Styles.component}>
+    <div className={styles.component}>
       <h2>Homepage view</h2>
     </div>
   );
