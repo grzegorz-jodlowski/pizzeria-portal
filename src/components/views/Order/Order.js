@@ -1,12 +1,17 @@
 import React from 'react';
-import Styles from './Order.module.scss';
+import PropTypes from 'prop-types';
+import styles from './Order.module.scss';
 
-const Order = () => {
+const Order = ({ id }) => {
   return (
-    <div className={Styles.component}>
-      <h2>Order view</h2>
+    <div className={styles.component}>
+      <h2>Order view: {id}</h2>
     </div>
   );
+};
+
+Order.propTypes = {
+  id: PropTypes.string,
 };
 
 export default Order;
