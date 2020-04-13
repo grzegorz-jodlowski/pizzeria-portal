@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Order.module.scss';
 
-const Order = ({ id }) => {
+const Order = ({ match }) => {
   return (
     <div className={styles.component}>
-      <h2>Order view: {id}</h2>
+      <h2>Order view: {match.params.id}</h2>
     </div>
   );
 };
 
 Order.propTypes = {
-  id: PropTypes.string,
+  match: PropTypes.object,
 };
 
 export default Order;
