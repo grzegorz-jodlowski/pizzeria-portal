@@ -90,11 +90,11 @@ export default function Login() {
             label="Remember me"
           />
           <Button
-            type="submit"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            href={`${process.env.PUBLIC_URL}/`}
           >
             Sign In
           </Button>
