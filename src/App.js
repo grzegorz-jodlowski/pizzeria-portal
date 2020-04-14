@@ -10,8 +10,8 @@ import WaiterOrder from './components/views/WaiterOrder/WaiterOrder';
 import NewOrder from './components/views/NewOrder/NewOrder';
 import NewBooking from './components/views/NewBooking/NewBooking';
 import NewEvent from './components/views/NewEvent/NewEvent';
-import Booking from './components/views/Booking/Booking';
-import Events from './components/views/Events/Events';
+import TablesBooking from './components/views/TablesBooking/TablesBooking';
+import TablesEvent from './components/views/TablesEvent/TablesEvent';
 import { StylesProvider } from '@material-ui/core/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -38,9 +38,9 @@ function App() {
               <Route exact path={`${process.env.PUBLIC_URL}/login`} component={Login} />
               <Route exact path={`${process.env.PUBLIC_URL}/tables`} component={Tables} />
               <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/new`} component={NewBooking} />
-              <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/:id`} component={Booking} />
+              <Route exact path={`${process.env.PUBLIC_URL}/tables/booking/:id`} component={TablesBooking} />
               <Route exact path={`${process.env.PUBLIC_URL}/tables/events/new`} component={NewEvent} />
-              <Route exact path={`${process.env.PUBLIC_URL}/tables/events/:id`} component={Events} />
+              <Route exact path={`${process.env.PUBLIC_URL}/tables/events/:id`} component={TablesEvent} />
               <Route exact path={`${process.env.PUBLIC_URL}/kitchen`} component={Kitchen} />
               <Route exact path={`${process.env.PUBLIC_URL}/waiter`} component={Waiter} />
               <Route exact path={`${process.env.PUBLIC_URL}/waiter/new`} component={NewOrder} />
