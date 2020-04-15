@@ -39,10 +39,11 @@ const demoContent = [
 const renderActions = status => {
   switch (status) {
     case 'waiting':
-      //TODO: Change status of event or booking
+      //TODO: Change status of event or booking on Click
       return (
         <>
           <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>Handle</Button>
+          <Button >Cancel</Button>
         </>
       );
     default:
@@ -79,7 +80,7 @@ const Homepage = () => {
           </Typography>
         </Paper>
       </section>
-      <Paper className={styles.component}>
+      <Paper className={styles.table}>
         <Typography component="h2" variant="h6" color="primary">
           Today&apos;s reservations and events
         </Typography>
