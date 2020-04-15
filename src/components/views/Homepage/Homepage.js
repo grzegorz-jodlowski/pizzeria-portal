@@ -27,14 +27,28 @@ const remoteOrders = [
 ];
 
 const demoContent = [
-  { id: '1', type: 'Event', time: '9-11', people: 4, name: 'John Smith', table: '1' },
-  { id: '2', type: 'Booking', time: '11', people: 4, name: 'John Smith', table: '2' },
-  { id: '3', type: 'Event', time: '9-11', people: 4, name: 'John Smith', table: '3' },
-  { id: '4', type: 'Booking', time: '9-11', people: 4, name: 'John Smith', table: '4' },
-  { id: '5', type: 'Booking', time: '9-11', people: 4, name: 'John Smith', table: '1' },
-  { id: '6', type: 'Event', time: '9-11', people: 4, name: 'John Smith', table: '2' },
-  { id: '7', type: 'Event', time: '9-11', people: 4, name: 'John Smith', table: '3' },
+  { id: '1', type: 'Event', time: '9-11', people: 4, name: 'John Smith', table: '1', status: 'waiting' },
+  { id: '2', type: 'Booking', time: '11-13', people: 4, name: 'John Smith', table: '2', status: 'waiting' },
+  { id: '3', type: 'Event', time: '11-16', people: 4, name: 'John Smith', table: '3', status: 'waiting' },
+  { id: '4', type: 'Booking', time: '14-16', people: 4, name: 'John Smith', table: '4', status: 'waiting' },
+  { id: '5', type: 'Booking', time: '15-17', people: 4, name: 'John Smith', table: '1', status: 'waiting' },
+  { id: '6', type: 'Event', time: '17-19', people: 4, name: 'John Smith', table: '2', status: 'waiting' },
+  { id: '7', type: 'Event', time: '19-20', people: 4, name: 'John Smith', table: '3', status: 'waiting' },
 ];
+
+const renderActions = status => {
+  switch (status) {
+    case 'waiting':
+      //TODO: Change status of event or booking
+      return (
+        <>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>Handle</Button>
+        </>
+      );
+    default:
+      return null;
+  }
+};
 
 const date = new Date();
 
@@ -78,6 +92,8 @@ const Homepage = () => {
               <TableCell>People</TableCell>
               <TableCell>Name</TableCell>
               <TableCell>Table</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Action</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -87,17 +103,25 @@ const Homepage = () => {
                   {row.id}
                 </TableCell>
                 <TableCell>
+                  {row.type}
+                </TableCell>
+                <TableCell>
+                  {row.time}
+                </TableCell>
+                <TableCell>
+                  {row.people}
+                </TableCell>
+                <TableCell>
+                  {row.name}
+                </TableCell>
+                <TableCell>
+                  {row.table}
+                </TableCell>
+                <TableCell>
                   {row.status}
                 </TableCell>
                 <TableCell>
-                  {row.order && (
-                    <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                      {row.order}
-                    </Button>
-                  )}
-                </TableCell>
-                <TableCell>
-                  {/* {renderActions(row.status)} */}
+                  {renderActions(row.status)}
                 </TableCell>
               </TableRow>
             ))}
