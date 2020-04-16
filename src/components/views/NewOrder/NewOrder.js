@@ -26,10 +26,9 @@ const demoTables = [
 
 const demoProducts = [
   { id: 'doughnut', price: 10, options: [] },
-  { id: 'breakfast', price: 15, options: ['latte', 'espresso'] },
-  { id: 'pizza', price: 20, options: ['olives', 'salami', 'peppers'] },
-  { id: 'salad', price: 15, options: ['cucumber', 'cheese', 'tomatoes'] },
-
+  { id: 'breakfast', price: 15, options: [{ id: 'latte', price: 2 }, { id: 'espresso', price: 2 }] },
+  { id: 'pizza', price: 20, options: [{ id: 'olives', price: 1 }, { id: 'salami', price: 1 }, { id: 'peppers', price: 1 }] },
+  { id: 'salad', price: 15, options: [{ id: 'cucumber', price: 1 }, { id: 'cheese', price: 1 }, { id: 'tomatoes', price: 1 }] },
 ];
 
 const productsNames = {};
@@ -45,15 +44,15 @@ class NewOrder extends React.Component {
   };
 
 
-  handleListItemClick = (product, value) => () => {
+  handleListItemClick = (product, { id, price }) => () => {
     //TODO: Fix bug with state
-    console.log(product, value);
+    console.log(product, id, price);
     this.setState({
       ...this.state,
       order: [
         ...this.state.order,
         {
-          [product]: [value],
+          [product]: [id],
         },
       ],
     });
@@ -95,8 +94,8 @@ class NewOrder extends React.Component {
               </ListItem>
               <Collapse in={this.state[product.id]} timeout="auto" unmountOnExit>
                 {product.options.map((option, i) =>
-                  <List component="div" disablePadding key={option} className={styles.subList}>
-                    <ListItem key={option} role={undefined} dense button onClick={this.handleListItemClick(product.id, option)}
+                  <List component="div" disablePadding key={option.id} className={styles.subList}>
+                    <ListItem key={option.id} role={undefined} dense button onClick={this.handleListItemClick(product.id, option)}
                     >
                       <ListItemIcon>
                         <Checkbox
@@ -106,7 +105,7 @@ class NewOrder extends React.Component {
                           inputProps={{ 'aria-labelledby': i }}
                         />
                       </ListItemIcon>
-                      <ListItemText id={option} primary={option} />
+                      <ListItemText id={option.id} primary={option.id} />
                     </ListItem>
                   </List>
                 )}
