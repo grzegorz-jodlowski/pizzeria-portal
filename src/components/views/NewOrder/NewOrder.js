@@ -127,6 +127,11 @@ class NewOrder extends React.Component {
           })}
           </Typography>
         </Paper>
+        <Paper className={styles.costSummary}>
+          <Typography component="h2" variant="h6" color="primary">
+            Cost:
+          </Typography>
+        </Paper>
       </div>
     );
   }
