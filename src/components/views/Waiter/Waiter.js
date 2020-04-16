@@ -24,12 +24,12 @@ const renderActions = status => {
       return (
         <>
           <Button>thinking</Button>
-          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
+          <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/new`}>new order</Button>
         </>
       );
     case 'thinking':
       return (
-        <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
+        <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/new`}>new order</Button>
       );
     case 'ordered':
       return (

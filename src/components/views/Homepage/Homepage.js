@@ -82,7 +82,7 @@ const Homepage = () => {
       </section>
       <Paper className={styles.table}>
         <Typography component="h2" variant="h6" color="primary">
-          Today&apos;s reservations and events
+          Today&apos;s reservations
         </Typography>
         <Table>
           <TableHead>
