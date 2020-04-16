@@ -14,6 +14,14 @@ const demoTables = [
   { id: '6' },
 ];
 
+const demoProducts = [
+  { id: 'doughnut', price: 10, options: [] },
+  { id: 'breakfast', price: 15, options: ['latte', 'espresso'] },
+  { id: 'pizza', price: 20, options: ['olives', 'salami', 'peppers'] },
+  { id: 'salad', price: 15, options: ['cucumber', 'cheese', 'tomatoes'] },
+
+];
+
 const NewOrder = () => {
   return (
     <div className={styles.component}>
@@ -27,6 +35,19 @@ const NewOrder = () => {
         >
           {demoTables.map(table => (
             <MenuItem key={table.id} value={table.id}>{table.id}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      <FormControl required className={styles.formControl}>
+        <InputLabel id="product-select-label">Product</InputLabel>
+        <Select
+          labelId="product-select-label"
+          id="product-select"
+        // value={age}
+        // onChange={handleChange}
+        >
+          {demoProducts.map(product => (
+            <MenuItem key={product.id} value={product.id}>{product.id}</MenuItem>
           ))}
         </Select>
       </FormControl>
