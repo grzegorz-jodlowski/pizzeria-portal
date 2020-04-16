@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import styles from './NewOrder.module.scss';
 import InputLabel from '@material-ui/core/InputLabel';
@@ -12,6 +13,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
+import Typography from '@material-ui/core/Typography';
+import Paper from '@material-ui/core/Paper';
 
 
 
@@ -44,15 +47,15 @@ class NewOrder extends React.Component {
   };
 
 
-  handleListItemClick = (product, { id, price }) => () => {
+  handleListItemClick = ({ id: productId, price: productPrice }, { id: optionId, price: optionPrice }) => () => {
     //TODO: Fix bug with state
-    console.log(product, id, price);
+    console.log(productId, productPrice, optionId, optionPrice);
     this.setState({
       ...this.state,
       order: [
         ...this.state.order,
         {
-          [product]: [id],
+          [productId]: [optionId],
         },
       ],
     });
@@ -95,7 +98,7 @@ class NewOrder extends React.Component {
               <Collapse in={this.state[product.id]} timeout="auto" unmountOnExit>
                 {product.options.map((option, i) =>
                   <List component="div" disablePadding key={option.id} className={styles.subList}>
-                    <ListItem key={option.id} role={undefined} dense button onClick={this.handleListItemClick(product.id, option)}
+                    <ListItem key={option.id} role={undefined} dense button onClick={this.handleListItemClick(product, option)}
                     >
                       <ListItemIcon>
                         <Checkbox
@@ -111,9 +114,19 @@ class NewOrder extends React.Component {
                 )}
               </Collapse>
             </List>
-          )
-          }
+          )}
         </div>
+        <Paper className={styles.orderSummary}>
+          <Typography component="h2" variant="h6" color="primary">Order:
+            {this.state.order.map((product, i) => {
+            return (
+              <li key={product}>
+                {`${Object.keys(product).join('')}: ${product[Object.keys(product)].join('')}`}
+              </li>
+            );
+          })}
+          </Typography>
+        </Paper>
       </div>
     );
   }
