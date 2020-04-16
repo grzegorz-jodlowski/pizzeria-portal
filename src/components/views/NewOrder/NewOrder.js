@@ -28,10 +28,10 @@ const demoTables = [
 ];
 
 const demoProducts = [
-  { id: 'doughnut', price: 10, options: [] },
-  { id: 'breakfast', price: 15, options: [{ id: 'latte', price: 2 }, { id: 'espresso', price: 2 }] },
-  { id: 'pizza', price: 20, options: [{ id: 'olives', price: 1 }, { id: 'salami', price: 1 }, { id: 'peppers', price: 1 }] },
-  { id: 'salad', price: 15, options: [{ id: 'cucumber', price: 1 }, { id: 'cheese', price: 1 }, { id: 'tomatoes', price: 1 }] },
+  { id: 'doughnut', price: 10, options: [{ id: 'solo', price: 0 }] },
+  { id: 'breakfast', price: 15, options: [{ id: 'solo', price: 0 }, { id: 'latte', price: 2 }, { id: 'espresso', price: 2 }] },
+  { id: 'pizza', price: 20, options: [{ id: 'solo', price: 0 }, { id: 'olives', price: 1 }, { id: 'salami', price: 1 }, { id: 'peppers', price: 1 }] },
+  { id: 'salad', price: 15, options: [{ id: 'solo', price: 0 }, { id: 'cucumber', price: 1 }, { id: 'cheese', price: 1 }, { id: 'tomatoes', price: 1 }] },
 ];
 
 const productsNames = {};
@@ -50,6 +50,7 @@ class NewOrder extends React.Component {
   handleListItemClick = ({ id: productId, price: productPrice }, { id: optionId, price: optionPrice }) => () => {
     //TODO: Fix bug with state
     console.log(productId, productPrice, optionId, optionPrice);
+
     this.setState({
       ...this.state,
       order: [
