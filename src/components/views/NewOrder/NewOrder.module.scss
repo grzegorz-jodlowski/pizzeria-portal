@@ -9,6 +9,16 @@
 }
 
 .formControl {
-  min-width: 140px;
+  min-width: 240px;
   margin-top: $base-size * 2;
+}
+
+.listsBox {
+  display: flex;
+  margin-top: $base-size * 2;
+  flex-wrap: wrap;
+}
+
+.list {
+  min-width: 240px;
 }
