@@ -21,6 +21,7 @@ const tables = [
   { id: '6' },
 ];
 
+//TODO: create func to change halfHour to date
 const halfHourArray = [
   9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5,
 ];
@@ -87,18 +88,6 @@ const Tables = () => {
           </TableBody>
         </Table>
       </Paper>
-      {/* <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} className={styles.link}>
-        New booking
-      </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/booking/${state.id}`} className={styles.link}>
-        Edit booking
-      </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/events/new`} className={styles.link}>
-        New event
-      </Link>
-      <Link to={`${process.env.PUBLIC_URL}/tables/events/${state.id}`} className={styles.link}>
-        Edit event
-      </Link> */}
     </div>
   );
 };
