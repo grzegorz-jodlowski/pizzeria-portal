@@ -19,14 +19,13 @@ const Tables = () => {
           label="Date"
           type="date"
           defaultValue={state.date}
-          className={styles.textField}
+          className={styles.dateField}
           InputLabelProps={{
             shrink: true,
           }}
         />
       </form>
-      <h2>Tables view</h2>
-      <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} className={styles.link}>
+      {/* <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} className={styles.link}>
         New booking
       </Link>
       <Link to={`${process.env.PUBLIC_URL}/tables/booking/${state.id}`} className={styles.link}>
@@ -37,7 +36,7 @@ const Tables = () => {
       </Link>
       <Link to={`${process.env.PUBLIC_URL}/tables/events/${state.id}`} className={styles.link}>
         Edit event
-      </Link>
+      </Link> */}
     </div>
   );
 };
