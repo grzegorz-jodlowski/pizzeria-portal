@@ -7,7 +7,6 @@ import Tables from './components/views/Tables/Tables';
 import Waiter from './components/views/Waiter/Waiter';
 import Homepage from './components/views/Homepage/Homepage';
 import WaiterOrder from './components/views/WaiterOrder/WaiterOrder';
-import NewOrder from './components/views/NewOrder/NewOrder';
 import NewBooking from './components/views/NewBooking/NewBooking';
 import NewEvent from './components/views/NewEvent/NewEvent';
 import TablesBooking from './components/views/TablesBooking/TablesBooking';
@@ -43,7 +42,6 @@ function App() {
               <Route exact path={`${process.env.PUBLIC_URL}/tables/events/:id`} component={TablesEvent} />
               <Route exact path={`${process.env.PUBLIC_URL}/kitchen`} component={Kitchen} />
               <Route exact path={`${process.env.PUBLIC_URL}/waiter`} component={Waiter} />
-              <Route exact path={`${process.env.PUBLIC_URL}/waiter/new`} component={NewOrder} />
               <Route exact path={`${process.env.PUBLIC_URL}/waiter/order/:id`} component={WaiterOrder} />
             </Switch>
           </MainLayout>
