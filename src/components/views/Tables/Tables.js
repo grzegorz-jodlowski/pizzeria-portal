@@ -21,14 +21,18 @@ const tables = [
   { id: '6' },
 ];
 
+const halfHourArray = [
+  9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5,
+];
+
 const demoContent = [
-  { id: '1', type: 'Event', duration: 2, startTime: 9, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
-  { id: '2', type: 'Booking', duration: 1, startTime: 11, people: 4, name: 'John Smith', table: '2', status: 'waiting' },
-  { id: '3', type: 'Event', duration: null, startTime: 11, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
-  { id: '4', type: 'Booking', duration: 1.5, startTime: 14, people: 4, name: 'John Smith', table: '4', status: 'waiting' },
-  { id: '5', type: 'Booking', duration: 2, startTime: 15, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
-  { id: '6', type: 'Event', duration: 2, startTime: 17, people: 4, name: 'John Smith', table: '2', status: 'waiting' },
-  { id: '7', type: 'Event', duration: 2, startTime: 19, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
+  { id: '1', type: 'event', duration: 2, startTime: 9, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
+  { id: '2', type: 'booking', duration: 1, startTime: 11, people: 4, name: 'John Smith', table: '2', status: 'waiting' },
+  { id: '3', type: 'event', duration: null, startTime: 11, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
+  { id: '4', type: 'booking', duration: 1.5, startTime: 14, people: 4, name: 'John Smith', table: '4', status: 'waiting' },
+  { id: '5', type: 'booking', duration: 2, startTime: 15, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
+  { id: '6', type: 'event', duration: 2, startTime: 17, people: 4, name: 'John Smith', table: '2', status: 'waiting' },
+  { id: '7', type: 'event', duration: 2, startTime: 19, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
 ];
 
 const Tables = () => {
@@ -62,24 +66,22 @@ const Tables = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {demoContent.map(row => (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
-                  {row.id}
-                </TableCell>
+            {halfHourArray.map((row, i) => (
+              <TableRow key={i}>
                 <TableCell>
-                  {row.status}
+                  {row}
                 </TableCell>
-                <TableCell>
-                  {row.order && (
-                    <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                      {row.order}
-                    </Button>
-                  )}
-                </TableCell>
-                <TableCell>
-                  {/* {renderActions(row.status)} */}
-                </TableCell>
+                {tables.map(cell => (
+                  <TableCell key={cell.id}>
+                    {demoContent.map(reservation => (
+                      (reservation.startTime === row && reservation.table === cell.id) && (
+                        <Button component={Link} to={`${process.env.PUBLIC_URL}/tables/${reservation.type}/${reservation.id}`}>
+                          {`${reservation.type} id: ${reservation.id}`}
+                        </Button>
+                      )
+                    ))}
+                  </TableCell>
+                ))}
               </TableRow>
             ))}
           </TableBody>
