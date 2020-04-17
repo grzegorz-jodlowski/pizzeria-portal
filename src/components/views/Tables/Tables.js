@@ -22,13 +22,13 @@ const tables = [
 ];
 
 const demoContent = [
-  { id: '1', type: 'Event', time: '9-11', people: 4, name: 'John Smith', table: '1', status: 'waiting' },
-  { id: '2', type: 'Booking', time: '11-13', people: 4, name: 'John Smith', table: '2', status: 'waiting' },
-  { id: '3', type: 'Event', time: '11-16', people: 4, name: 'John Smith', table: '3', status: 'waiting' },
-  { id: '4', type: 'Booking', time: '14-16', people: 4, name: 'John Smith', table: '4', status: 'waiting' },
-  { id: '5', type: 'Booking', time: '15-17', people: 4, name: 'John Smith', table: '1', status: 'waiting' },
-  { id: '6', type: 'Event', time: '17-19', people: 4, name: 'John Smith', table: '2', status: 'waiting' },
-  { id: '7', type: 'Event', time: '19-20', people: 4, name: 'John Smith', table: '3', status: 'waiting' },
+  { id: '1', type: 'Event', duration: 2, startTime: 9, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
+  { id: '2', type: 'Booking', duration: 1, startTime: 11, people: 4, name: 'John Smith', table: '2', status: 'waiting' },
+  { id: '3', type: 'Event', duration: null, startTime: 11, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
+  { id: '4', type: 'Booking', duration: 1.5, startTime: 14, people: 4, name: 'John Smith', table: '4', status: 'waiting' },
+  { id: '5', type: 'Booking', duration: 2, startTime: 15, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
+  { id: '6', type: 'Event', duration: 2, startTime: 17, people: 4, name: 'John Smith', table: '2', status: 'waiting' },
+  { id: '7', type: 'Event', duration: 2, startTime: 19, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
 ];
 
 const Tables = () => {
@@ -51,6 +51,40 @@ const Tables = () => {
           }}
         />
       </form>
+      <Paper className={styles.table}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell></TableCell>
+              {tables.map(column => (
+                <TableCell key={column.id}>{column.id}</TableCell>
+              ))}
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {demoContent.map(row => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell>
+                  {row.status}
+                </TableCell>
+                <TableCell>
+                  {row.order && (
+                    <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                      {row.order}
+                    </Button>
+                  )}
+                </TableCell>
+                <TableCell>
+                  {/* {renderActions(row.status)} */}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
       {/* <Link to={`${process.env.PUBLIC_URL}/tables/booking/new`} className={styles.link}>
         New booking
       </Link>
