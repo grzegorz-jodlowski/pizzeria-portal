@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Waiter.module.scss';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -52,41 +53,53 @@ const renderActions = status => {
   }
 };
 
-const Waiter = () => (
-  <Paper className={styles.component}>
-    <Table>
-      <TableHead>
-        <TableRow>
-          <TableCell>Table</TableCell>
-          <TableCell>Status</TableCell>
-          <TableCell>Order</TableCell>
-          <TableCell>Action</TableCell>
-        </TableRow>
-      </TableHead>
-      <TableBody>
-        {demoContent.map(row => (
-          <TableRow key={row.id}>
-            <TableCell component="th" scope="row">
-              {row.id}
-            </TableCell>
-            <TableCell>
-              {row.status}
-            </TableCell>
-            <TableCell>
-              {row.order && (
-                <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
-                  {row.order}
-                </Button>
-              )}
-            </TableCell>
-            <TableCell>
-              {renderActions(row.status)}
-            </TableCell>
-          </TableRow>
-        ))}
-      </TableBody>
-    </Table>
-  </Paper>
-);
+class Waiter extends React.Component {
+  static propTypes = {
+    fetchTables: PropTypes.func,
+    loading: PropTypes.shape({
+      active: PropTypes.bool,
+      error: PropTypes.anyOf(PropTypes.bool, PropTypes.string),
+    }),
+  }
+
+  render() {
+    return (
+      <Paper className={styles.component}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>Table</TableCell>
+              <TableCell>Status</TableCell>
+              <TableCell>Order</TableCell>
+              <TableCell>Action</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {demoContent.map(row => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell>
+                  {row.status}
+                </TableCell>
+                <TableCell>
+                  {row.order && (
+                    <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/${row.order}`}>
+                      {row.order}
+                    </Button>
+                  )}
+                </TableCell>
+                <TableCell>
+                  {renderActions(row.status)}
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </Paper>
+    );
+  }
+}
 
 export default Waiter;
