@@ -18,9 +18,9 @@ const formFields = ['id', 'type', 'duration', 'startTime', 'people', 'name', 'ta
 
 const TablesBooking = ({ match }) => {
   const currentReservation = demoContent.find(reservation => reservation.id === match.params.id);
-  console.log(' : TablesBooking -> currentReservation', currentReservation);
 
   return (
+    //TODO: refactor to select/menuItem?
     <div className={styles.component}>
       <form className={styles.form}>
         {formFields.map((field) => (
@@ -33,7 +33,7 @@ const TablesBooking = ({ match }) => {
             label={field}
             name={field}
             autoFocus
-            value={currentReservation[field]}
+            value={match.params.id === 'new' ? null : currentReservation[field]}
           />
         ))}
       </form>
