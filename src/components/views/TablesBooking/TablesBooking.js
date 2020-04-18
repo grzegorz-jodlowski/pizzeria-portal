@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './TablesBooking.module.scss';
+import TextField from '@material-ui/core/TextField';
+
 
 const demoContent = [
   { id: '1', type: 'event', duration: 2, startTime: 9, people: 4, name: 'John Smith', table: '1', status: 'waiting' },
@@ -12,10 +14,29 @@ const demoContent = [
   { id: '7', type: 'event', duration: 2, startTime: 19, people: 4, name: 'John Smith', table: '3', status: 'waiting' },
 ];
 
+const formFields = ['id', 'type', 'duration', 'startTime', 'people', 'name', 'table', 'status'];
+
 const TablesBooking = ({ match }) => {
+  const currentReservation = demoContent.find(reservation => reservation.id === match.params.id);
+  console.log(' : TablesBooking -> currentReservation', currentReservation);
+
   return (
     <div className={styles.component}>
-      <h2>TablesBooking view: {match.params.id}</h2>
+      <form className={styles.form}>
+        {formFields.map((field) => (
+          <TextField
+            key={field}
+            className={styles.formInput}
+            variant='outlined'
+            margin='normal'
+            id={field}
+            label={field}
+            name={field}
+            autoFocus
+            value={currentReservation[field]}
+          />
+        ))}
+      </form>
     </div>
   );
 };
