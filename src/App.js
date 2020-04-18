@@ -6,7 +6,7 @@ import store from './redux/store';
 import Login from './components/views/Login/Login';
 import Kitchen from './components/views/Kitchen/Kitchen';
 import Tables from './components/views/Tables/Tables';
-import Waiter from './components/views/Waiter/Waiter';
+import Waiter from './components/views/Waiter/WaiterContainer';
 import Homepage from './components/views/Homepage/Homepage';
 import WaiterOrder from './components/views/WaiterOrder/WaiterOrder';
 import TablesBooking from './components/views/TablesBooking/TablesBooking';
