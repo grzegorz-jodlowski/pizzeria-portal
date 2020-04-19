@@ -13,11 +13,11 @@ import { Link } from 'react-router-dom';
 class Waiter extends React.Component {
   static propTypes = {
     updateTablesStatus: PropTypes.func,
-    tables: PropTypes.array,
+    tables: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     fetchTables: PropTypes.func,
     loading: PropTypes.shape({
       active: PropTypes.bool,
-      error: PropTypes.bool || PropTypes.string,
+      error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     }),
   }
 
