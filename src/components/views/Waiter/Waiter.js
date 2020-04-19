@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 
 class Waiter extends React.Component {
   static propTypes = {
+    updateTablesStatus: PropTypes.func,
     tables: PropTypes.array,
     fetchTables: PropTypes.func,
     loading: PropTypes.shape({
@@ -25,12 +26,18 @@ class Waiter extends React.Component {
     fetchTables();
   }
 
-  renderActions(status) {
-    switch (status) {
+  handleClickButton(e, table) {
+    const { updateTablesStatus } = this.props;
+    updateTablesStatus(table, e.target.innerHTML);
+  }
+
+  renderActions(table) {
+
+    switch (table.status) {
       case 'free':
         return (
           <>
-            <Button>thinking</Button>
+            <Button onClick={(e) => this.handleClickButton(e, table)}>thinking</Button>
             <Button component={Link} to={`${process.env.PUBLIC_URL}/waiter/order/new`}>new order</Button>
           </>
         );
@@ -40,19 +47,19 @@ class Waiter extends React.Component {
         );
       case 'ordered':
         return (
-          <Button>prepared</Button>
+          <Button onClick={(e) => this.handleClickButton(e, table)}>prepared</Button>
         );
       case 'prepared':
         return (
-          <Button>delivered</Button>
+          <Button onClick={(e) => this.handleClickButton(e, table)}>delivered</Button>
         );
       case 'delivered':
         return (
-          <Button>paid</Button>
+          <Button onClick={(e) => this.handleClickButton(e, table)}>paid</Button>
         );
       case 'paid':
         return (
-          <Button>free</Button>
+          <Button onClick={(e) => this.handleClickButton(e, table)}>free</Button>
         );
       default:
         return null;
@@ -104,7 +111,7 @@ class Waiter extends React.Component {
                     )}
                   </TableCell>
                   <TableCell>
-                    {this.renderActions(row.status)}
+                    {this.renderActions(row)}
                   </TableCell>
                 </TableRow>
               ))}

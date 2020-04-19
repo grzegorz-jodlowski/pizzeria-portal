@@ -37,6 +37,19 @@ export const fetchFromAPI = () => {
   };
 };
 
+export const postToAPI = ({ id, order, status }, newStatus) => {
+  return (dispatch, getState) => {
+    Axios
+      .put(`${api.url}/${api.tables}/${id}`, { id: id, order: order, status: newStatus })
+      .then(res => {
+        dispatch(updateTableStatus(res.data));
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+};
+
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
@@ -66,6 +79,15 @@ export default function reducer(statePart = [], action = {}) {
           active: false,
           error: action.payload,
         },
+      };
+    }
+    case UPDATE_TABLE_STATUS: {
+
+      return {
+        ...statePart,
+        data: [
+          ...statePart.data.map(table => table.id === action.payload.id ? action.payload : table),
+        ],
       };
     }
     default:
