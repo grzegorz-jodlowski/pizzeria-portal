@@ -5,7 +5,7 @@
 
 
 # <p align="center">📈 Pizzeria dashboard</p>
-<p align="center">Project for mastering React, Redux and work with API</p>
+<p align="center">Project for mastering React, Redux, work with API and learn Material design</p>
 
 </br>
 
@@ -25,7 +25,7 @@
 
 ## <a name="about"></a>What's this project about?
 
-This is a website for a
+This is a website for the pizzeria administration panel that offers login, dashboard, waiter, kitchen, table, orders views. In the application it is possible to change the status of tables, create and edit orders, and handle orders through the kitchen. The entire website is based on the redux state of the application and cooperation with API (Thunk, Axios).
 
 </br>
 
@@ -38,6 +38,7 @@ This is a website for a
 - Redux
 - Router
 - GIT
+- Material-UI
 - Axios
 - Thunk
 
@@ -109,11 +110,11 @@ for files selected with `git add` and to be saved in commit.
 
 ## <a name="url"></a>Available URLs
 
-- http://localhost:3000/ - bieżący projekt czyli panel administracyjny (`webpack-dev-server`)
-- http://localhost:3131/ - strona pizzerii dla klientów
-- http://localhost:3131/api - url API projektu
-- http://localhost:3131/api/db - podgląd całej bazy danych w API
-- http://localhost:3131/panel - stan bieżącego projektu (panelu) z momentu uruchomienia `yarn start` (to nie jest podgląd na żywo)
+- http://localhost:3000/ - live view of the current project - administration panel (`webpack-dev-server`)
+- http://localhost:3131/ - pizzeria website for customers
+- http://localhost:3131/api - project API url
+- http://localhost:3131/api/db - preview of the entire database in the API
+- http://localhost:3131/panel - state of the current project (panel) from the moment of starting `yarn start` (this is not a live view)
 
 <br/>
 
