@@ -50,6 +50,8 @@ This is a website for the pizzeria administration panel that offers login, dashb
 - adapt the project created using create-react-app to our requirements,
 - use the `npx ...` command instead of `npm run ...` (removing the package after installation - the current version of the package each time),
 - build npm scripts using react-scripts,
+- create a project wireframe in the [moqups](https://moqups.com/) application,
+- create application views in a more advanced way (using React Router),
 -
 
 
