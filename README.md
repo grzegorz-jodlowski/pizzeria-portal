@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://pizzeria-portal.herokuapp.com/"><img src="public/assets/img/logo-pizzeria-portal.jpg" title="pizzeria-portal-app" alt="snippet of pizzeria portal app"></a>
+<a href="https://pizzeria-portal.herokuapp.com/panel/"><img src="public/assets/img/logo-pizzeria-portal.jpg" title="pizzeria-portal-app" alt="snippet of pizzeria portal app"></a>
 </p>
 
 
@@ -48,12 +48,14 @@ This is a website for the pizzeria administration panel that offers login, dashb
 
 - create a React project using [create-react-app](https://create-react-app.dev/),
 - adapt the project created using create-react-app to our requirements,
-- use the `npx ...` command instead of `npm run ...` (removing the package after installation - the current version of the package each time),
+- use the `npx` command instead of `npm run` (removing the package after installation - the current version of the package each time),
 - build npm scripts using react-scripts,
 - create a project wireframe in the [moqups](https://moqups.com/) application,
 - create application views in a more advanced way (using React Router),
 - use the Material design library in a React project ([Material-UI](https://material-ui.com/)),
--
+- use [Trello](https://trello.com/) to organize work in the project,
+- implement and use React Thunk (as middleware for capturing redux actions and working with APIs),
+- use the Axios package to work with the API (instead of the `fetch` function built into the browser).
 
 
 
@@ -164,7 +166,7 @@ for files selected with `git add` and to be saved in commit.
 <br/>
 
 ## <a name="site"></a>Website (on Heroku)
-[Pizzeria dashboard](https://pizzeria-portal.herokuapp.com/)
+[Pizzeria dashboard](https://pizzeria-portal.herokuapp.com/panel/)
 - if the page loads slowly, wait a moment, the server is waking up because it is hosted on a free platform Heroku.
 
 </br>
