@@ -46,6 +46,8 @@ This is a website for the pizzeria administration panel that offers login, dashb
 
 ## <a name="what"></a>What I learned?
 
+-
+-
 - use the [JSON file generator](https://next.json-generator.com/),
 
 
@@ -53,10 +55,48 @@ This is a website for the pizzeria administration panel that offers login, dashb
 </br>
 
 ## <a name="interesting"></a>Interesting code snippet (for me of course 😉)
-- m
+- thunk creator:
 
 ```js
+export const fetchFromAPI = () => {
+  return (dispatch, getState) => {
+    dispatch(fetchStarted());
 
+    Axios
+      .get(`${api.url}/${api.tables}`)
+      .then(res => {
+        dispatch(fetchSuccess(res.data));
+      })
+      .catch(err => {
+        dispatch(fetchError(err.message || true));
+      });
+  };
+};
+```
+
+- conditional render of the React component:
+
+```js
+  render() {
+    const { loading: { active, error }, tables } = this.props;
+
+    if (active || !tables.length) {
+      return (
+        <Paper className={styles.component}>
+          <p>Loading...</p>
+        </Paper>
+      );
+    } else if (error) {
+      return (
+        <Paper className={styles.component}>
+          <p>Error! Details:</p>
+          <pre>{error}</pre>
+        </Paper>
+      );
+    } else {
+      return (
+        ...
+      )
 ```
 
 </br>
