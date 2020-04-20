@@ -35,8 +35,8 @@ This is a website for the pizzeria administration panel that offers login, dashb
 - SCSS
 - JavaScript
 - React
+- React Router
 - Redux
-- Router
 - GIT
 - Material-UI
 - Axios
@@ -46,9 +46,11 @@ This is a website for the pizzeria administration panel that offers login, dashb
 
 ## <a name="what"></a>What I learned?
 
+- create a React project using [create-react-app](https://create-react-app.dev/),
+- adapt the project created using create-react-app to our requirements,
+- use the `npx ...` command instead of `npm run ...` (removing the package after installation - the current version of the package each time),
+- build npm scripts using react-scripts,
 -
--
-- use the [JSON file generator](https://next.json-generator.com/),
 
 
 

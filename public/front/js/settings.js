@@ -114,7 +114,7 @@ export const settings = {
     id: 1,
   },
   db: {
-    url: '//' + window.location.hostname + (window.location.hostname == 'localhost' ? ':3131/api' : '/api'),
+    url: '//' + window.location.hostname + (window.location.hostname === 'localhost' ? ':3131/api' : '/api'),
     product: 'product',
     order: 'order',
     booking: 'booking',
