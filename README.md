@@ -52,6 +52,7 @@ This is a website for the pizzeria administration panel that offers login, dashb
 - build npm scripts using react-scripts,
 - create a project wireframe in the [moqups](https://moqups.com/) application,
 - create application views in a more advanced way (using React Router),
+- use the Material design library in a React project ([Material-UI](https://material-ui.com/)),
 -
 
 
