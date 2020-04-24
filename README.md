@@ -117,7 +117,7 @@ npm install // yarn install
 
 or
 
-npm i // yarn i
+npm i
 ```
 - run watch mode to start the server, constantly refreshing and more:
 
